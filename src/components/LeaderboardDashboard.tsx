@@ -232,23 +232,13 @@ export function LeaderboardDashboard() {
                       <div className="flex items-end gap-1 h-16">
                         {line.hourlyPerformanceData.map((data, dataIndex) => (
                           <div key={dataIndex} className="flex flex-col items-center flex-1">
-                            {/* Horizontal bar graph above time */}
-                            <div className="mb-2 w-full flex justify-center">
-                              <div 
-                                className="h-3 rounded-full transition-all shadow-sm"
-                                style={{
-                                  width: `${Math.max((data.value / 100) * 100, 30)}%`,
-                                  backgroundColor: getPerformanceColor(data.value)
-                                }}
-                              />
-                            </div>
                             {data.hasStar && (
                               <Star className="h-2 w-2 fill-yellow-400 text-yellow-400 mb-1" />
                             )}
                             <div
-                              className="w-full rounded-t-sm min-h-[4px] transition-all"
+                              className="w-full rounded-t-sm min-h-[4px] transition-all shadow-sm"
                               style={{
-                                height: `${(data.value / 100) * 32}px`,
+                                height: `${(data.value / 100) * 48}px`,
                                 backgroundColor: getPerformanceColor(data.value)
                               }}
                             />
