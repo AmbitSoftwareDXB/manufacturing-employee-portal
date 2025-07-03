@@ -26,7 +26,7 @@ const navigationItems = [{
   url: "/root-cause-analysis",
   icon: Search
 }, {
-  title: "Kaizen View",
+  title: "Kaizen",
   url: "/kaizen",
   icon: TrendingUp
 }];
