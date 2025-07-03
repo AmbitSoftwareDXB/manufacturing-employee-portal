@@ -34,7 +34,7 @@ export function AppSidebar() {
 
   return (
     <Sidebar variant="sidebar" collapsible="icon">
-      <SidebarContent className="bg-sidebar border-r border-sidebar-border">
+      <SidebarContent className="bg-sidebar text-sidebar-foreground border-r border-sidebar-border">
         <div className="p-4 border-b border-sidebar-border">
           <div className="flex items-center gap-2">
             <div className="h-8 w-8 bg-sidebar-primary rounded-lg flex items-center justify-center">
