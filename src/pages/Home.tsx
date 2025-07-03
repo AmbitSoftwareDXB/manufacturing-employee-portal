@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Truck, Shield, Cog, Wrench, AlertCircle, Calendar, Users } from "lucide-react"
 import { useNavigate } from "react-router-dom"
+import { LeaderboardDashboard } from "@/components/LeaderboardDashboard"
 
 const quickAccessItems = [
   { title: "Supply Chain", icon: Truck, path: "/supply-chain", color: "bg-blue-500" },
@@ -74,6 +75,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* Leaderboard Dashboard */}
+      <LeaderboardDashboard />
 
       {/* Announcements Section */}
       <section>
