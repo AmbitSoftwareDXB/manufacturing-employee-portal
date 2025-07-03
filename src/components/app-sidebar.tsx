@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom"
-import { Home, Truck, Shield, Cog, Wrench, Search } from "lucide-react"
+import { Home, Truck, Shield, Cog, Wrench, Search, TrendingUp } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -19,6 +19,7 @@ const navigationItems = [
   { title: "Production", url: "/production", icon: Cog },
   { title: "Maintenance", url: "/maintenance", icon: Wrench },
   { title: "Root Cause Analysis", url: "/root-cause-analysis", icon: Search },
+  { title: "Kaizen View", url: "/kaizen", icon: TrendingUp },
 ]
 
 export function AppSidebar() {

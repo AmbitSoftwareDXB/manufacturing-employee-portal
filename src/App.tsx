@@ -11,6 +11,7 @@ import Quality from "./pages/Quality";
 import Production from "./pages/Production";
 import Maintenance from "./pages/Maintenance";
 import RootCauseAnalysis from "./pages/RootCauseAnalysis";
+import KaizenView from "./pages/KaizenView";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
               <Route path="/production" element={<Production />} />
               <Route path="/maintenance" element={<Maintenance />} />
               <Route path="/root-cause-analysis" element={<RootCauseAnalysis />} />
+              <Route path="/kaizen" element={<KaizenView />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
