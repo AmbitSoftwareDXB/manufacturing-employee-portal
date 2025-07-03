@@ -235,9 +235,9 @@ export function LeaderboardDashboard() {
                             {/* Horizontal bar graph above time */}
                             <div className="mb-2 w-full flex justify-center">
                               <div 
-                                className="h-2 rounded-full transition-all bg-opacity-70"
+                                className="h-3 rounded-full transition-all shadow-sm"
                                 style={{
-                                  width: `${Math.max((data.value / 100) * 100, 20)}%`,
+                                  width: `${Math.max((data.value / 100) * 100, 30)}%`,
                                   backgroundColor: getPerformanceColor(data.value)
                                 }}
                               />
