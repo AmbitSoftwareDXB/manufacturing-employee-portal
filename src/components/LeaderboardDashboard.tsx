@@ -446,15 +446,10 @@ export function LeaderboardDashboard() {
                       {/* Trend Indicator */}
                       <div className="flex items-center gap-1">
                         {getTrend(line.hourlyPerformanceData) === 'up' ? (
-                          <TrendingUp className="h-4 w-4 text-chart-2" />
+                          <TrendingUp className="h-5 w-5 text-chart-2" />
                         ) : (
-                          <TrendingDown className="h-4 w-4 text-destructive" />
+                          <TrendingDown className="h-5 w-5 text-destructive" />
                         )}
-                        <span className={`text-xs font-medium ${
-                          getTrend(line.hourlyPerformanceData) === 'up' ? 'text-chart-2' : 'text-destructive'
-                        }`}>
-                          {getTrend(line.hourlyPerformanceData) === 'up' ? 'Trending Up' : 'Trending Down'}
-                        </span>
                       </div>
                       
                       {index === 0 && (
