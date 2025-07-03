@@ -65,12 +65,12 @@ export function AppSidebar() {
                         `flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
                           isActive 
                             ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium" 
-                            : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                            : "text-gray-700 dark:text-gray-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
                         }`
                       }
                     >
                       <item.icon className="h-4 w-4" />
-                      {!isCollapsed && <span>{item.title}</span>}
+                      {!isCollapsed && <span className="text-gray-700 dark:text-gray-200">{item.title}</span>}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
