@@ -61,6 +61,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				portal: {
+					'bg-primary': 'hsl(var(--portal-bg-primary))',
+					'bg-secondary': 'hsl(var(--portal-bg-secondary))',
+					'nav-active': 'hsl(var(--portal-nav-active))',
+					'card-bg': 'hsl(var(--portal-card-bg))',
+					'announcement-new': 'hsl(var(--portal-announcement-new))',
+					'announcement-update': 'hsl(var(--portal-announcement-update))',
+					'announcement-reminder': 'hsl(var(--portal-announcement-reminder))'
 				}
 			},
 			borderRadius: {
