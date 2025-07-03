@@ -236,10 +236,11 @@ export function LeaderboardDashboard() {
                               <Star className="h-2 w-2 fill-yellow-400 text-yellow-400 mb-1" />
                             )}
                             <div
-                              className="w-full rounded-t-sm min-h-[4px] transition-all shadow-sm"
+                              className="w-full rounded-t-sm transition-all shadow-sm border border-gray-200"
                               style={{
-                                height: `${(data.value / 100) * 48}px`,
-                                backgroundColor: getPerformanceColor(data.value)
+                                height: `${Math.max((data.value / 100) * 48, 8)}px`,
+                                backgroundColor: getPerformanceColor(data.value),
+                                minHeight: '8px'
                               }}
                             />
                             <span className="text-[10px] text-muted-foreground mt-1">
