@@ -10,6 +10,7 @@ import SupplyChain from "./pages/SupplyChain";
 import Quality from "./pages/Quality";
 import Production from "./pages/Production";
 import Maintenance from "./pages/Maintenance";
+import RootCauseAnalysis from "./pages/RootCauseAnalysis";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
               <Route path="/quality" element={<Quality />} />
               <Route path="/production" element={<Production />} />
               <Route path="/maintenance" element={<Maintenance />} />
+              <Route path="/root-cause-analysis" element={<RootCauseAnalysis />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
