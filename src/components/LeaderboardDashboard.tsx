@@ -107,13 +107,13 @@ const mockLeaderboardData: LineData[] = [
 ]
 
 const sidebarItems = [
-  { name: "Game", active: true },
-  { name: "Score", active: false },
-  { name: "OEE", active: false },
-  { name: "Packaging", active: false },
-  { name: "Flow", active: false },
-  { name: "Update", active: false },
-  { name: "X-Bar R", active: false },
+  { name: "Game", active: false },
+  { name: "Score", active: true },
+  { name: "OEE", active: true },
+  { name: "Packaging", active: true },
+  { name: "Flow", active: true },
+  { name: "Update", active: true },
+  { name: "X-Bar R", active: true },
 ]
 
 const getPerformanceColor = (value: number) => {
@@ -221,9 +221,19 @@ export function LeaderboardDashboard() {
 
                     {/* Sparkline Chart */}
                     <div className="flex-1 max-w-md">
-                      <div className="flex items-end gap-1 h-12">
+                      <div className="flex items-end gap-1 h-16">
                         {line.hourlyPerformanceData.map((data, dataIndex) => (
                           <div key={dataIndex} className="flex flex-col items-center flex-1">
+                            {/* Horizontal bar graph above time */}
+                            <div className="mb-1 w-full flex justify-center">
+                              <div 
+                                className="h-1 rounded-full transition-all"
+                                style={{
+                                  width: `${(data.value / 100) * 100}%`,
+                                  backgroundColor: getPerformanceColor(data.value)
+                                }}
+                              />
+                            </div>
                             {data.hasStar && (
                               <Star className="h-2 w-2 fill-yellow-400 text-yellow-400 mb-1" />
                             )}
