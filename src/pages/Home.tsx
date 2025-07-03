@@ -20,7 +20,8 @@ const announcements = [
     badge: "New",
     badgeColor: "bg-portal-announcement-new",
     icon: AlertCircle,
-    imageAlt: "Safety training"
+    imageAlt: "Safety training",
+    imageSrc: "/lovable-uploads/a6000a25-7542-436e-8fb8-1855913ea051.png"
   },
   {
     type: "Update",
@@ -29,7 +30,8 @@ const announcements = [
     badge: "Update",
     badgeColor: "bg-portal-announcement-update",
     icon: Calendar,
-    imageAlt: "Production schedule"
+    imageAlt: "Production schedule",
+    imageSrc: "/lovable-uploads/66da8d26-7d1b-4bfc-810c-ee99469d456f.png"
   },
   {
     type: "Reminder",
@@ -38,7 +40,8 @@ const announcements = [
     badge: "Reminder",
     badgeColor: "bg-portal-announcement-reminder",
     icon: Users,
-    imageAlt: "Survey form"
+    imageAlt: "Survey form",
+    imageSrc: "/lovable-uploads/76d345e2-06ca-4cb5-9c74-bb6993fdb7b7.png"
   }
 ]
 
@@ -98,8 +101,12 @@ export default function Home() {
                 <CardDescription className="text-sm text-muted-foreground leading-relaxed">
                   {announcement.description}
                 </CardDescription>
-                <div className="mt-4 h-32 bg-muted rounded-lg flex items-center justify-center">
-                  <span className="text-muted-foreground text-sm">{announcement.imageAlt}</span>
+                <div className="mt-4 h-32 rounded-lg overflow-hidden">
+                  <img 
+                    src={announcement.imageSrc} 
+                    alt={announcement.imageAlt}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </CardContent>
             </Card>
