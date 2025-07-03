@@ -17,9 +17,9 @@ export function Layout({ children }: LayoutProps) {
           <header className="h-16 flex items-center justify-between px-6 border-b border-border bg-background">
             <div className="flex items-center gap-4">
               <SidebarTrigger className="h-8 w-8" />
-              <div className="flex items-center gap-2">
-                <h1 className="text-xl font-semibold text-foreground">Manufacturing Co</h1>
-                <span className="text-sm text-muted-foreground">Employee Portal</span>
+              <div className="flex items-center gap-3">
+                <img src="/lovable-uploads/7a191de3-ccd5-4fd3-aae7-1a087750d2a1.png" alt="Logo" className="h-8 w-8" />
+                <h1 className="text-xl font-semibold text-foreground">Employee Portal</h1>
               </div>
             </div>
             
