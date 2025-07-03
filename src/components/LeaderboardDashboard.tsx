@@ -117,9 +117,9 @@ const sidebarItems = [
 ]
 
 const getPerformanceColor = (value: number) => {
-  if (value >= 80) return "hsl(var(--chart-2))" // Green
-  if (value >= 60) return "hsl(var(--chart-4))" // Orange
-  return "hsl(var(--destructive))" // Red
+  if (value >= 80) return "#22c55e" // Green - 4 points
+  if (value >= 60) return "#f97316" // Orange - 2 points  
+  return "#ef4444" // Red - 0 points
 }
 
 const getStarCount = (percentage: number) => {
@@ -291,15 +291,15 @@ export function LeaderboardDashboard() {
                   <h4 className="text-sm font-medium text-foreground mb-2">Point System</h4>
                   <div className="flex gap-4 text-xs">
                     <div className="flex items-center gap-1">
-                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "hsl(var(--chart-2))" }} />
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#22c55e" }} />
                       <span>4 Points</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "hsl(var(--chart-4))" }} />
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#f97316" }} />
                       <span>2 Points</span>
                     </div>
                     <div className="flex items-center gap-1">
-                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "hsl(var(--destructive))" }} />
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#ef4444" }} />
                       <span>0 Points</span>
                     </div>
                   </div>
