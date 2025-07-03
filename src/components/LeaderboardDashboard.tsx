@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Star, Trophy, Clock } from "lucide-react"
+import { Star, Trophy, Clock, TrendingUp, TrendingDown } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
@@ -134,6 +134,14 @@ const getCurrentTime = () => {
   })
 }
 
+const getTrend = (data: HourlyData[]) => {
+  const firstHalf = data.slice(0, Math.floor(data.length / 2))
+  const secondHalf = data.slice(Math.floor(data.length / 2))
+  const firstAvg = firstHalf.reduce((sum, item) => sum + item.value, 0) / firstHalf.length
+  const secondAvg = secondHalf.reduce((sum, item) => sum + item.value, 0) / secondHalf.length
+  return secondAvg > firstAvg ? 'up' : 'down'
+}
+
 export function LeaderboardDashboard() {
   const [currentTime, setCurrentTime] = useState(getCurrentTime())
   const [sortedData, setSortedData] = useState<LineData[]>([])
@@ -225,11 +233,11 @@ export function LeaderboardDashboard() {
                         {line.hourlyPerformanceData.map((data, dataIndex) => (
                           <div key={dataIndex} className="flex flex-col items-center flex-1">
                             {/* Horizontal bar graph above time */}
-                            <div className="mb-1 w-full flex justify-center">
+                            <div className="mb-2 w-full flex justify-center">
                               <div 
-                                className="h-1 rounded-full transition-all"
+                                className="h-2 rounded-full transition-all bg-opacity-70"
                                 style={{
-                                  width: `${(data.value / 100) * 100}%`,
+                                  width: `${Math.max((data.value / 100) * 100, 20)}%`,
                                   backgroundColor: getPerformanceColor(data.value)
                                 }}
                               />
@@ -252,8 +260,22 @@ export function LeaderboardDashboard() {
                       </div>
                     </div>
 
-                    {/* Score and Leader Indicator */}
-                    <div className="min-w-[120px] flex items-center gap-3">
+                    {/* Trend Indicator and Score */}
+                    <div className="min-w-[160px] flex items-center gap-3">
+                      {/* Trend Indicator */}
+                      <div className="flex items-center gap-1">
+                        {getTrend(line.hourlyPerformanceData) === 'up' ? (
+                          <TrendingUp className="h-4 w-4 text-chart-2" />
+                        ) : (
+                          <TrendingDown className="h-4 w-4 text-destructive" />
+                        )}
+                        <span className={`text-xs font-medium ${
+                          getTrend(line.hourlyPerformanceData) === 'up' ? 'text-chart-2' : 'text-destructive'
+                        }`}>
+                          {getTrend(line.hourlyPerformanceData) === 'up' ? 'Trending Up' : 'Trending Down'}
+                        </span>
+                      </div>
+                      
                       {index === 0 && (
                         <div className="bg-chart-2 text-white px-3 py-1 rounded-md text-sm font-medium">
                           Current Leader
