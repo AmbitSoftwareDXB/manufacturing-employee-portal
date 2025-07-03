@@ -107,14 +107,199 @@ const mockLeaderboardData: LineData[] = [
 ]
 
 const sidebarItems = [
-  { name: "Game", active: false },
-  { name: "Score", active: true },
-  { name: "OEE", active: true },
-  { name: "Packaging", active: true },
-  { name: "Flow", active: true },
-  { name: "Update", active: true },
-  { name: "X-Bar R", active: true },
+  { name: "Game" },
+  { name: "Score" },
+  { name: "OEE" },
+  { name: "Packaging" },
+  { name: "Flow" },
+  { name: "Update" },
+  { name: "X-Bar R" },
 ]
+
+// Different datasets for each parameter
+const dataByParameter: Record<string, LineData[]> = {
+  Game: mockLeaderboardData,
+  Score: [
+    {
+      lineName: "Line 1",
+      shift: "A Shift",
+      currentPercentage: 92.5,
+      leaderboardScore: 185,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 90, hasStar: true },
+        { time: "5 AM", value: 88, hasStar: false },
+        { time: "7 AM", value: 95, hasStar: true },
+        { time: "9 AM", value: 92, hasStar: true },
+        { time: "11 AM", value: 94, hasStar: true },
+        { time: "1 PM", value: 91, hasStar: false },
+      ]
+    },
+    {
+      lineName: "Line 3",
+      shift: "B Shift", 
+      currentPercentage: 87.2,
+      leaderboardScore: 174,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 85, hasStar: true },
+        { time: "5 AM", value: 89, hasStar: true },
+        { time: "7 AM", value: 86, hasStar: false },
+        { time: "9 AM", value: 88, hasStar: false },
+        { time: "11 AM", value: 89, hasStar: true },
+        { time: "1 PM", value: 86, hasStar: false },
+      ]
+    },
+    {
+      lineName: "Line 2",
+      shift: "A Shift",
+      currentPercentage: 84.1,
+      leaderboardScore: 168,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 82, hasStar: false },
+        { time: "5 AM", value: 85, hasStar: true },
+        { time: "7 AM", value: 83, hasStar: false },
+        { time: "9 AM", value: 86, hasStar: true },
+        { time: "11 AM", value: 84, hasStar: false },
+        { time: "1 PM", value: 85, hasStar: true },
+      ]
+    }
+  ],
+  OEE: [
+    {
+      lineName: "Packaging Line 1",
+      shift: "A Shift",
+      currentPercentage: 89.3,
+      leaderboardScore: 267,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 87, hasStar: true },
+        { time: "5 AM", value: 90, hasStar: true },
+        { time: "7 AM", value: 88, hasStar: false },
+        { time: "9 AM", value: 91, hasStar: true },
+        { time: "11 AM", value: 89, hasStar: true },
+        { time: "1 PM", value: 90, hasStar: true },
+      ]
+    },
+    {
+      lineName: "Line 4",
+      shift: "C Shift",
+      currentPercentage: 86.7,
+      leaderboardScore: 260,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 84, hasStar: false },
+        { time: "5 AM", value: 87, hasStar: true },
+        { time: "7 AM", value: 89, hasStar: true },
+        { time: "9 AM", value: 86, hasStar: false },
+        { time: "11 AM", value: 88, hasStar: true },
+        { time: "1 PM", value: 86, hasStar: false },
+      ]
+    }
+  ],
+  Packaging: [
+    {
+      lineName: "Packaging Line 2",
+      shift: "B Shift",
+      currentPercentage: 91.8,
+      leaderboardScore: 459,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 89, hasStar: true },
+        { time: "5 AM", value: 93, hasStar: true },
+        { time: "7 AM", value: 90, hasStar: true },
+        { time: "9 AM", value: 94, hasStar: true },
+        { time: "11 AM", value: 92, hasStar: true },
+        { time: "1 PM", value: 91, hasStar: false },
+      ]
+    },
+    {
+      lineName: "Packaging Line 1",
+      shift: "A Shift",
+      currentPercentage: 88.4,
+      leaderboardScore: 442,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 86, hasStar: false },
+        { time: "5 AM", value: 90, hasStar: true },
+        { time: "7 AM", value: 87, hasStar: false },
+        { time: "9 AM", value: 91, hasStar: true },
+        { time: "11 AM", value: 89, hasStar: true },
+        { time: "1 PM", value: 88, hasStar: false },
+      ]
+    }
+  ],
+  Flow: [
+    {
+      lineName: "Flow Line A",
+      shift: "A Shift",
+      currentPercentage: 94.2,
+      leaderboardScore: 377,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 92, hasStar: true },
+        { time: "5 AM", value: 95, hasStar: true },
+        { time: "7 AM", value: 93, hasStar: true },
+        { time: "9 AM", value: 96, hasStar: true },
+        { time: "11 AM", value: 94, hasStar: true },
+        { time: "1 PM", value: 95, hasStar: true },
+      ]
+    },
+    {
+      lineName: "Flow Line B",
+      shift: "B Shift",
+      currentPercentage: 90.1,
+      leaderboardScore: 360,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 88, hasStar: false },
+        { time: "5 AM", value: 91, hasStar: true },
+        { time: "7 AM", value: 89, hasStar: true },
+        { time: "9 AM", value: 92, hasStar: true },
+        { time: "11 AM", value: 90, hasStar: true },
+        { time: "1 PM", value: 91, hasStar: true },
+      ]
+    }
+  ],
+  Update: [
+    {
+      lineName: "Update Station 1",
+      shift: "C Shift",
+      currentPercentage: 86.9,
+      leaderboardScore: 521,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 84, hasStar: false },
+        { time: "5 AM", value: 88, hasStar: true },
+        { time: "7 AM", value: 85, hasStar: false },
+        { time: "9 AM", value: 89, hasStar: true },
+        { time: "11 AM", value: 87, hasStar: true },
+        { time: "1 PM", value: 88, hasStar: true },
+      ]
+    }
+  ],
+  "X-Bar R": [
+    {
+      lineName: "QC Station Alpha",
+      shift: "A Shift",
+      currentPercentage: 97.1,
+      leaderboardScore: 194,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 95, hasStar: true },
+        { time: "5 AM", value: 98, hasStar: true },
+        { time: "7 AM", value: 96, hasStar: true },
+        { time: "9 AM", value: 99, hasStar: true },
+        { time: "11 AM", value: 97, hasStar: true },
+        { time: "1 PM", value: 98, hasStar: true },
+      ]
+    },
+    {
+      lineName: "QC Station Beta",
+      shift: "B Shift",
+      currentPercentage: 93.8,
+      leaderboardScore: 187,
+      hourlyPerformanceData: [
+        { time: "3 AM", value: 91, hasStar: true },
+        { time: "5 AM", value: 95, hasStar: true },
+        { time: "7 AM", value: 92, hasStar: true },
+        { time: "9 AM", value: 96, hasStar: true },
+        { time: "11 AM", value: 94, hasStar: true },
+        { time: "1 PM", value: 94, hasStar: true },
+      ]
+    }
+  ]
+}
 
 const getPerformanceColor = (value: number) => {
   if (value >= 80) return "#22c55e" // Green - 4 points
@@ -144,6 +329,7 @@ const getTrend = (data: HourlyData[]) => {
 
 export function LeaderboardDashboard() {
   const [currentTime, setCurrentTime] = useState(getCurrentTime())
+  const [activeParameter, setActiveParameter] = useState("Game")
   const [sortedData, setSortedData] = useState<LineData[]>([])
 
   useEffect(() => {
@@ -152,12 +338,15 @@ export function LeaderboardDashboard() {
       setCurrentTime(getCurrentTime())
     }, 60000)
 
-    // Sort data by leaderboard score
-    const sorted = [...mockLeaderboardData].sort((a, b) => b.leaderboardScore - a.leaderboardScore)
-    setSortedData(sorted)
-
     return () => clearInterval(timer)
   }, [])
+
+  useEffect(() => {
+    // Sort data by leaderboard score when parameter changes
+    const currentData = dataByParameter[activeParameter] || []
+    const sorted = [...currentData].sort((a, b) => b.leaderboardScore - a.leaderboardScore)
+    setSortedData(sorted)
+  }, [activeParameter])
 
   return (
     <section className="mt-8">
@@ -182,12 +371,13 @@ export function LeaderboardDashboard() {
               {sidebarItems.map((item) => (
                 <Button
                   key={item.name}
-                  variant={item.active ? "default" : "ghost"}
+                  variant={activeParameter === item.name ? "default" : "ghost"}
                   className={`justify-start text-sm h-8 ${
-                    item.active 
+                    activeParameter === item.name 
                       ? "bg-primary text-primary-foreground" 
                       : "text-muted-foreground hover:text-foreground"
                   }`}
+                  onClick={() => setActiveParameter(item.name)}
                 >
                   {item.name}
                 </Button>
