@@ -1,15 +1,14 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/app-sidebar"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
-
-export function Layout({ children }: LayoutProps) {
-  return (
-    <SidebarProvider>
+export function Layout({
+  children
+}: LayoutProps) {
+  return <SidebarProvider>
       <div className="min-h-screen flex w-full bg-background">
         <AppSidebar />
         <main className="flex-1 flex flex-col">
@@ -19,7 +18,7 @@ export function Layout({ children }: LayoutProps) {
               <SidebarTrigger className="h-8 w-8" />
               <div className="flex items-center gap-3">
                 <img src="/lovable-uploads/7a191de3-ccd5-4fd3-aae7-1a087750d2a1.png" alt="Logo" className="h-8 w-8" />
-                <h1 className="text-xl font-semibold text-foreground">Employee Portal</h1>
+                <h1 className="text-xl font-semibold text-foreground">LG Connections</h1>
               </div>
             </div>
             
@@ -38,6 +37,5 @@ export function Layout({ children }: LayoutProps) {
           </div>
         </main>
       </div>
-    </SidebarProvider>
-  )
+    </SidebarProvider>;
 }
