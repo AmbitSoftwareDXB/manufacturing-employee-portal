@@ -62,7 +62,7 @@ export function AppSidebar() {
             
             {!isCollapsed && <div className="flex items-center gap-2">
                 <img src="/lovable-uploads/7a191de3-ccd5-4fd3-aae7-1a087750d2a1.png" alt="Logo" className="h-6 w-6" />
-                <h2 className="text-sm font-semibold text-sidebar-foreground">LG Connections</h2>
+                <h2 className="text-sm font-semibold text-sidebar-foreground">LG REINVENT</h2>
               </div>}
           </div>
         </div>

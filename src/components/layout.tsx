@@ -18,7 +18,7 @@ export function Layout({
               <SidebarTrigger className="h-8 w-8" />
               <div className="flex items-center gap-3">
                 <img src="/lovable-uploads/7a191de3-ccd5-4fd3-aae7-1a087750d2a1.png" alt="Logo" className="h-8 w-8" />
-                <h1 className="text-xl font-semibold text-foreground">LG Connections</h1>
+                <h1 className="text-xl font-semibold text-foreground">LG REINVENT</h1>
               </div>
             </div>
             
