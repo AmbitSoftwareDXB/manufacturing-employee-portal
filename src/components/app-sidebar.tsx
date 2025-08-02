@@ -1,34 +1,46 @@
 import { NavLink, useLocation } from "react-router-dom";
-import { Home, Truck, Shield, Cog, Wrench, Search, TrendingUp } from "lucide-react";
+import { Home, Truck, Shield, Cog, Wrench, Search, TrendingUp, Monitor } from "lucide-react";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@/components/ui/sidebar";
 const navigationItems = [{
   title: "Home",
   url: "/",
-  icon: Home
+  icon: Home,
+  isExternal: false
 }, {
   title: "Supply Chain",
   url: "/supply-chain",
-  icon: Truck
+  icon: Truck,
+  isExternal: false
 }, {
   title: "Quality",
   url: "/quality",
-  icon: Shield
+  icon: Shield,
+  isExternal: false
 }, {
   title: "Production",
   url: "/production",
-  icon: Cog
+  icon: Cog,
+  isExternal: false
 }, {
   title: "Maintenance",
   url: "/maintenance",
-  icon: Wrench
+  icon: Wrench,
+  isExternal: false
 }, {
   title: "Root Cause Analysis",
   url: "/root-cause-analysis",
-  icon: Search
+  icon: Search,
+  isExternal: false
 }, {
   title: "Kaizen",
   url: "/kaizen",
-  icon: TrendingUp
+  icon: TrendingUp,
+  isExternal: false
+}, {
+  title: "Digital Twin Monitor",
+  url: "https://factorypulsedigitaltwin.netlify.app/",
+  icon: Monitor,
+  isExternal: true
 }];
 export function AppSidebar() {
   const {
@@ -63,12 +75,22 @@ export function AppSidebar() {
             <SidebarMenu>
               {navigationItems.map(item => <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
-                    <NavLink to={item.url} end className={({
-                  isActive
-                }) => `flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${isActive ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium" : "text-gray-700 dark:text-gray-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"}`}>
-                      <item.icon className="h-4 w-4" />
-                      {!isCollapsed && <span className="text-gray-700 dark:text-gray-200">{item.title}</span>}
-                    </NavLink>
+                    {item.isExternal ? (
+                      <a 
+                        href={item.url} 
+                        className="flex items-center gap-2 px-3 py-2 rounded-md transition-colors text-gray-700 dark:text-gray-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                      >
+                        <item.icon className="h-4 w-4" />
+                        {!isCollapsed && <span className="text-gray-700 dark:text-gray-200">{item.title}</span>}
+                      </a>
+                    ) : (
+                      <NavLink to={item.url} end className={({
+                        isActive
+                      }) => `flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${isActive ? "bg-sidebar-primary text-sidebar-primary-foreground font-medium" : "text-gray-700 dark:text-gray-200 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"}`}>
+                        <item.icon className="h-4 w-4" />
+                        {!isCollapsed && <span className="text-gray-700 dark:text-gray-200">{item.title}</span>}
+                      </NavLink>
+                    )}
                   </SidebarMenuButton>
                 </SidebarMenuItem>)}
             </SidebarMenu>
